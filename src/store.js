@@ -14,16 +14,31 @@ function reducer(state=initialState,action){
                 if(state.loan>0) return state;
                 //LATER
                 return {...state,loan:action.payload.amount,loanPurpose:action.payload.purpose,balance:state.balance+action.payload.amount}
-                case "account/payloan":
+                case "account/payLoan":
                     return {...state,loan:0,loanPurpose:"",balance:state.balance-state.loan}
                 default:
                 return state;
          }
 }
 const store=createStore(reducer);
-store.dispatch({type:"account/deposit",payload:500})
-console.log(store.getState())
-store.dispatch(({type:"account/requestLoan",payload:{amount:1000,purpose:"Buy car"}}))
-console.log(store.getState())
-store.dispatch({type:"account/payloan"})
+
+function deposit(amount){
+return {type:"account/deposit",payload:amount}
+
+}
+function withdraw(amount){
+  return {type:"account/withdraw",payload:amount}
+
+}
+function payLoan(){
+    return {type:"account/payLoan"}
+}
+function requestLoan(amount,purpose){
+    return {type:"account/requestLoan",payload:{amount,purpose}}
+}
+store.dispatch(deposit(300))
+store.dispatch(withdraw(20))
+store.dispatch(requestLoan(10000,"setting up working space"))
+store.dispatch(payLoan())
+
 console.log(store.getState())
