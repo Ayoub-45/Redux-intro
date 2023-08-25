@@ -7,7 +7,6 @@ function formatCurrency(value) {
 }
 
 function BalanceDisplay({balance}) {
-  console.log(balance)
     return <div className="balance">{formatCurrency(balance)}</div>;
 }
 function mapStateToProps(state) {
