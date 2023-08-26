@@ -1,11 +1,11 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import thunk from "redux-thunk"
-import accountReducer from "./features/accounts/accountSlice";
+import { configureStore } from "@reduxjs/toolkit";
 import customerReducer from "./features/customers/customerSlice";
-import { composeWithDevTools } from "redux-devtools-extension";
-const rootReducer = combineReducers({
-    account: accountReducer,
-    customer: customerReducer,
-});
-const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk)));
+import accountReducer from "./features/accounts/accountSlice";
+const store= configureStore({
+    reducer:{
+        account:accountReducer,
+        customer:customerReducer
+    }
+}
+)
 export default store
