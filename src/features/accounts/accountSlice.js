@@ -4,6 +4,7 @@ const initialStateAccount = {
     loanPurpose: "",
     isLoading:false
 };
+console.log(initialStateAccount)
 export default function accountReducer(state = initialStateAccount, action) {
     switch (action.type) {
         case "account/deposit":
