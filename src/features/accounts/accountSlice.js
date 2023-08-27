@@ -47,3 +47,4 @@ export function deposit(amount,currency) {
         const converted=data.rates.USD;
         dispatch({type:"account/deposit",payload:converted});
     }}
+    console.log(accountSlice)
