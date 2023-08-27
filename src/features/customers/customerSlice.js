@@ -5,6 +5,7 @@ const initialState = {
     nationalID: "",
     createdAt: "",
 };
+console.log(initialState)
 const customerSlice=createSlice({
     name:"customer",
     initialState,
